@@ -68,25 +68,43 @@
   });
 
   function activateTab(tab) {
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var outgoing = tabs
+      .filter(function (t) { return t.getAttribute("aria-selected") === "true" && t !== tab; })
+      .map(function (t) { return panels[t.dataset.tab]; });
+
     tabs.forEach(function (t) {
       var selected = t === tab;
       t.setAttribute("aria-selected", String(selected));
       t.tabIndex = selected ? 0 : -1;
-      var panel = panels[t.dataset.tab];
-      if (selected) {
-        panel.hidden = false;
-        panel.classList.add("is-active");
-      } else {
-        panel.hidden = true;
-        panel.classList.remove("is-active");
-      }
     });
+
+    var incoming = panels[tab.dataset.tab];
+
+    if (reduceMotion || !outgoing.length) {
+      outgoing.forEach(function (p) { p.hidden = true; p.classList.remove("is-active", "is-leaving"); });
+      incoming.hidden = false;
+      incoming.classList.add("is-active");
+      return;
+    }
+
+    // Fade the old panel out (translateY 0 -> 8px, opacity 1 -> 0),
+    // then swap and fade the new one in (translateY 12px -> 0, opacity 0 -> 1).
+    outgoing.forEach(function (p) {
+      p.classList.remove("is-active");
+      p.classList.add("is-leaving");
+    });
+    window.setTimeout(function () {
+      outgoing.forEach(function (p) { p.hidden = true; p.classList.remove("is-leaving"); });
+      incoming.hidden = false;
+      incoming.classList.add("is-active");
+    }, 220);
   }
 
   /* ---------------------------------------------------------
      Scroll reveal animations
      --------------------------------------------------------- */
-  var revealEls = document.querySelectorAll(".reveal, .reveal-scale");
+  var revealEls = document.querySelectorAll(".reveal, .reveal-scale, .mask-trigger");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(
       function (entries) {
@@ -105,26 +123,41 @@
   }
 
   /* ---------------------------------------------------------
-     Subtle parallax on featured section image
+     Subtle hero parallax — desktop only, tiny movement, disabled
+     for reduced motion. Capped well under the ~25-40px target.
      --------------------------------------------------------- */
-  var parallax = document.getElementById("featured-parallax");
-  if (parallax && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var ticking = false;
+  var heroMedia = document.getElementById("hero-media");
+  var reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var desktopQuery = window.matchMedia("(min-width: 900px)");
+
+  if (heroMedia) {
+    var heroScene = heroMedia.querySelector(".scene");
+    var parallaxTicking = false;
+    var MAX_PARALLAX = 34;
+
+    function updateHeroParallax() {
+      if (reduceMotionQuery.matches || !desktopQuery.matches) {
+        heroScene.style.transform = "";
+        return;
+      }
+      var offset = Math.max(-MAX_PARALLAX, Math.min(MAX_PARALLAX, window.scrollY * 0.04));
+      heroScene.style.transform = "translateY(" + offset + "px)";
+    }
+
     window.addEventListener(
       "scroll",
       function () {
-        if (!ticking) {
+        if (!parallaxTicking) {
           window.requestAnimationFrame(function () {
-            var rect = parallax.parentElement.getBoundingClientRect();
-            var offset = rect.top * 0.06;
-            parallax.style.transform = "translateY(" + offset + "px)";
-            ticking = false;
+            updateHeroParallax();
+            parallaxTicking = false;
           });
-          ticking = true;
+          parallaxTicking = true;
         }
       },
       { passive: true }
     );
+    updateHeroParallax();
   }
 
   /* ---------------------------------------------------------
