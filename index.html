@@ -6,7 +6,7 @@
 <title>Greek Spot | Authentic Greek Food in Cedars, PA</title>
 <meta name="description" content="Greek Spot in Cedars, PA serves authentic Greek favorites including gyros, souvlaki, salads, platters and more. Catering available. Call (267) 903-5105.">
 <meta name="keywords" content="Greek restaurant Cedars PA, Greek food Cedars PA, gyro Cedars PA, souvlaki Cedars PA, Mediterranean food Cedars PA, Greek catering Cedars PA, Greek restaurant near Skippack, catering near Cedars PA">
-<meta name="theme-color" content="#123F7A">
+<meta name="theme-color" content="#0B3B6E">
 
 <!-- Open Graph -->
 <meta property="og:type" content="restaurant.restaurant">
@@ -14,11 +14,11 @@
 <meta property="og:description" content="Gyros, souvlaki, Greek classics and Mediterranean favorites in Cedars, PA. Catering available. Call (267) 903-5105.">
 <meta property="og:locale" content="en_US">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23123F7A'/%3E%3Ccircle cx='32' cy='24' r='10' fill='none' stroke='%23F8F0E3' stroke-width='3'/%3E%3Cpath d='M32 8v6M32 42v6M8 24h6M52 24h6M15 7l4 4M45 7l-4 4' stroke='%23F8F0E3' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230B3B6E'/%3E%3Ccircle cx='32' cy='24' r='10' fill='none' stroke='%23F8EEDC' stroke-width='3'/%3E%3Cpath d='M32 8v6M32 42v6M8 24h6M52 24h6M15 7l4 4M45 7l-4 4' stroke='%23F8EEDC' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -58,6 +58,9 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="page-frame">
+<div class="site-shell">
 
 <!-- =========================================================
      SVG SYMBOL SPRITE — decorative Greek-inspired line art
@@ -177,10 +180,21 @@
     </symbol>
     <symbol id="icon-stamp-ring" viewBox="0 0 160 160">
       <path id="stampCircle" fill="none" d="M80,14 a66,66 0 1,1 -0.1,0"/>
-      <text font-family="'DM Sans', sans-serif" font-weight="700" font-size="11.5" letter-spacing="3" fill="currentColor">
+      <text font-family="'Inter', sans-serif" font-weight="700" font-size="11.5" letter-spacing="3" fill="currentColor">
         <textPath href="#stampCircle" startOffset="0%">GREEK SPOT &#8226; CEDARS, PA &#8226; MADE TO SHARE &#8226; </textPath>
       </text>
       <circle cx="80" cy="80" r="66" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+    </symbol>
+    <symbol id="icon-plate" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="34" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M28 36 q12 -10 24 0 q-4 12 -12 12 q-8 0 -12 -12z" fill="currentColor" opacity="0.85"/>
+    </symbol>
+    <symbol id="icon-speech" viewBox="0 0 40 32">
+      <path d="M4 4h32v18H16l-7 8v-8H4z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="13" cy="13" r="1.6" fill="currentColor"/>
+      <circle cx="20" cy="13" r="1.6" fill="currentColor"/>
+      <circle cx="27" cy="13" r="1.6" fill="currentColor"/>
     </symbol>
   </defs>
 </svg>
@@ -193,7 +207,6 @@
     <a href="#home" class="wordmark">GREEK SPOT<span class="sub">Authentic Gyro &amp; Souvlaki</span></a>
 
     <nav class="nav__links" aria-label="Primary">
-      <a href="#home">Home</a>
       <a href="#menu">Menu</a>
       <a href="#catering">Catering</a>
       <a href="#about">About</a>
@@ -212,7 +225,6 @@
 
 <div class="mobile-menu" id="mobile-menu">
   <nav class="mobile-menu__links" aria-label="Mobile">
-    <a href="#home" data-menu-link>Home</a>
     <a href="#menu" data-menu-link>Menu</a>
     <a href="#catering" data-menu-link>Catering</a>
     <a href="#about" data-menu-link>About</a>
@@ -230,20 +242,29 @@
        HERO
        ========================================================= -->
   <section class="hero" id="home">
-    <div class="hero__texture" aria-hidden="true"></div>
-    <div class="hero__overlay" aria-hidden="true"></div>
-    <div class="stamp reveal-scale" style="transition-delay:.4s" aria-hidden="true">
-      <svg class="stamp__ring" viewBox="0 0 160 160"><use href="#icon-stamp-ring"/></svg>
-      <svg class="stamp__icon" viewBox="0 0 60 60"><use href="#icon-sun"/></svg>
-    </div>
+    <div class="hero__photo">
+      <div class="hero__texture" aria-hidden="true"></div>
+      <div class="hero__scene" aria-hidden="true">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><use href="#icon-key" width="100" height="6" x="0" y="46"/></svg>
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="stamp reveal-scale" style="transition-delay:.4s" aria-hidden="true">
+        <svg class="stamp__ring" viewBox="0 0 160 160"><use href="#icon-stamp-ring"/></svg>
+        <svg class="stamp__icon" viewBox="0 0 60 60"><use href="#icon-sun"/></svg>
+      </div>
 
-    <div class="container hero__inner">
-      <span class="hero__badge reveal is-visible" style="--i:0">Cedars, Pennsylvania</span>
-      <h1 class="hero__title reveal is-visible" style="--i:1">Authentic Greek Flavor <em>Right Here in Cedars</em></h1>
-      <p class="hero__lede reveal is-visible" style="--i:2">Gyros, souvlaki, Greek classics and Mediterranean favorites made for sharing.</p>
-      <div class="hero__actions reveal is-visible" style="--i:3">
-        <a href="#menu" class="btn btn--primary">View Our Menu</a>
-        <a href="tel:2679035105" class="btn btn--outline-light">Call to Order</a>
+      <div class="hero__inner">
+        <div class="hero__badges reveal is-visible" style="--i:0">
+          <span class="chip chip--outline">Cedars, PA</span>
+          <span class="chip chip--orange">Gyros &bull; Souvlaki &bull; More</span>
+        </div>
+        <p class="hero__sub reveal is-visible" style="--i:1">Authentic Gyro &amp; Souvlaki</p>
+        <h1 class="hero__title reveal is-visible" style="--i:2">Greek Spot</h1>
+        <p class="hero__lede reveal is-visible" style="--i:3">Gyros, souvlaki, Greek classics and Mediterranean favorites made for sharing — right here in Cedars.</p>
+        <div class="hero__actions reveal is-visible" style="--i:4">
+          <a href="#menu" class="btn btn--primary">View Our Menu</a>
+          <a href="tel:2679035105" class="btn btn--outline-light">Call to Order</a>
+        </div>
       </div>
     </div>
   </section>
@@ -252,30 +273,11 @@
        INTRO / WELCOME
        ========================================================= -->
   <section class="intro" id="welcome">
-    <div class="container intro__grid">
-      <div class="intro__text reveal">
-        <span class="eyebrow">Welcome to Greek Spot</span>
-        <h2>Good food. Greek tradition. No passport required.</h2>
-        <p>Greek Spot brings the flavors of the Mediterranean to Cedars with classic gyros, souvlaki, fresh salads, comforting Greek dishes and plenty of food made for sharing.</p>
-        <div class="intro__actions">
-          <a href="#menu" class="btn btn--outline">Explore the Menu</a>
-        </div>
-      </div>
-
-      <div class="intro__collage reveal">
-        <svg class="intro__key" viewBox="0 0 200 20" aria-hidden="true"><use href="#icon-key"/></svg>
-        <div class="art-panel art-panel--terracotta" role="img" aria-label="Illustration of a Greek gyro wrap">
-          <svg viewBox="0 0 60 80" aria-hidden="true"><use href="#icon-gyro"/></svg>
-          <span class="art-panel__label">Gyro</span>
-        </div>
-        <div class="art-panel art-panel--blue" role="img" aria-label="Illustration of a Greek olive branch">
-          <svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-olive"/></svg>
-        </div>
-        <div class="art-panel art-panel--cream" role="img" aria-label="Illustration of a Greek salad bowl">
-          <svg viewBox="0 0 80 50" aria-hidden="true"><use href="#icon-bowl"/></svg>
-          <span class="art-panel__label">Greek Salad</span>
-        </div>
-      </div>
+    <div class="container">
+      <svg class="intro__icon reveal" viewBox="0 0 60 60" aria-hidden="true"><use href="#icon-sun"/></svg>
+      <span class="eyebrow reveal">Welcome to Greek Spot</span>
+      <h2 class="reveal">Fresh Greek food, <em>made for sharing.</em></h2>
+      <p class="intro__lede reveal">Gyros, souvlaki, salads, pita, mezethes and comforting Greek favorites — every dish made to order and ready to share around the table.</p>
     </div>
   </section>
 
@@ -285,27 +287,63 @@
   <section class="strip" aria-label="Food highlights">
     <div class="container strip__row">
       <div class="strip__item reveal">
-        <div class="art-panel art-panel--terracotta" role="img" aria-label="Gyro illustration">
+        <div class="art-panel art-panel--orange" role="img" aria-label="Gyro illustration">
           <svg viewBox="0 0 60 80" aria-hidden="true"><use href="#icon-gyro"/></svg>
           <span class="art-panel__label">Gyros</span>
         </div>
       </div>
-      <div class="strip__item reveal" style="transition-delay:.08s">
+      <div class="strip__item reveal" style="transition-delay:.06s">
         <div class="art-panel art-panel--blue" role="img" aria-label="Souvlaki skewer illustration">
           <svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-skewer"/></svg>
           <span class="art-panel__label art-panel__label--alt">Souvlaki</span>
         </div>
       </div>
-      <div class="strip__item reveal" style="transition-delay:.16s">
+      <div class="strip__item reveal" style="transition-delay:.12s">
         <div class="art-panel art-panel--olive" role="img" aria-label="Greek salad bowl illustration">
           <svg viewBox="0 0 80 50" aria-hidden="true"><use href="#icon-bowl"/></svg>
           <span class="art-panel__label">Greek Salads</span>
         </div>
       </div>
+      <div class="strip__item reveal" style="transition-delay:.18s">
+        <div class="art-panel art-panel--cream" role="img" aria-label="Illustration of a Greek platter">
+          <svg viewBox="0 0 80 80" aria-hidden="true"><use href="#icon-plate"/></svg>
+          <span class="art-panel__label art-panel__label--alt">Platters</span>
+        </div>
+      </div>
       <div class="strip__item reveal" style="transition-delay:.24s">
-        <div class="art-panel art-panel--cream" role="img" aria-label="Amphora illustration representing Greek favorites">
-          <svg viewBox="0 0 60 100" aria-hidden="true"><use href="#icon-amphora"/></svg>
-          <span class="art-panel__label art-panel__label--alt">Greek Favorites</span>
+        <div class="art-panel art-panel--yellow" role="img" aria-label="Illustration of baklava, a Greek favorite dessert">
+          <svg viewBox="0 0 80 60" aria-hidden="true"><use href="#icon-baklava"/></svg>
+          <span class="art-panel__label">Greek Favorites</span>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="text-align:center;">
+      <div class="info-bubble info-bubble--center reveal">
+        <svg aria-hidden="true"><use href="#icon-sun"/></svg>
+        Fresh Greek favorites, made to order and ready to share.
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FEATURED TWO-COLUMN
+       ========================================================= -->
+  <section class="featured">
+    <div class="container featured__grid">
+      <div class="featured__text reveal">
+        <span class="eyebrow">What We're Serving</span>
+        <h2>The Greek classics you keep coming back for.</h2>
+        <p>From gyros and souvlaki to fresh salads, pita, mezethes and comforting Greek favorites, there is something for every appetite.</p>
+        <div class="featured__actions">
+          <a href="#menu" class="chip chip--orange">Menu</a>
+          <a href="#catering" class="chip chip--orange">Catering</a>
+          <a href="tel:2679035105" class="chip chip--orange">Call to Order</a>
+        </div>
+      </div>
+      <div class="featured__media reveal">
+        <div class="art-panel art-panel--blue" role="img" aria-label="Illustration of a Greek souvlaki platter">
+          <svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-skewer"/></svg>
+          <span class="art-panel__label">Souvlaki Platter</span>
         </div>
       </div>
     </div>
@@ -527,46 +565,34 @@
   </section>
 
   <!-- =========================================================
-       FEATURED FULL-WIDTH BREAK
-       ========================================================= -->
-  <section class="featured">
-    <div class="featured__parallax" id="featured-parallax" aria-hidden="true">
-      <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><use href="#icon-temple" width="400" height="240" x="0" y="80" opacity="0.5"/></svg>
-    </div>
-    <div class="featured__overlay" aria-hidden="true"></div>
-    <div class="container featured__inner">
-      <span class="eyebrow eyebrow--on-blue">Made to Share</span>
-      <h2>Greek food is better around the table.</h2>
-    </div>
-  </section>
-
-  <!-- =========================================================
        CATERING
        ========================================================= -->
   <section class="catering" id="catering">
-    <div class="catering__media">
-      <div class="art-panel art-panel--terracotta" role="img" aria-label="Illustration of an abundant Mediterranean catering spread with shared dishes">
-        <svg viewBox="0 0 120 80" aria-hidden="true"><use href="#icon-table"/></svg>
-        <span class="art-panel__label">Catering Spread</span>
+    <div class="container catering__grid">
+      <div class="catering__media reveal">
+        <div class="art-panel art-panel--orange" role="img" aria-label="Illustration of an abundant Mediterranean catering spread with shared dishes">
+          <svg viewBox="0 0 120 80" aria-hidden="true"><use href="#icon-table"/></svg>
+          <span class="art-panel__label">Catering Spread</span>
+        </div>
       </div>
-    </div>
-    <div class="catering__content">
-      <span class="eyebrow eyebrow--on-blue">Greek Spot Catering</span>
-      <h2>Bring Greek Spot to your next event.</h2>
-      <p>Planning a party, family gathering, office lunch or special celebration? Let Greek Spot handle the food. Our Greek favorites are perfect for feeding groups and sharing around the table.</p>
+      <div class="catering__content reveal">
+        <span class="eyebrow">Greek Spot Catering</span>
+        <h2>Bring Greek Spot to your next event.</h2>
+        <p>Planning a party, office lunch, birthday, family gathering or celebration? Greek Spot offers catering for groups and events.</p>
 
-      <ul class="occasion-list">
-        <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Birthdays</li>
-        <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Office Lunches</li>
-        <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Family Gatherings</li>
-        <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Celebrations</li>
-        <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Parties</li>
-        <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Community Events</li>
-      </ul>
+        <ul class="occasion-list">
+          <li class="chip chip--outline">Birthdays</li>
+          <li class="chip chip--outline">Office Lunches</li>
+          <li class="chip chip--outline">Family Events</li>
+          <li class="chip chip--outline">Parties</li>
+          <li class="chip chip--outline">Celebrations</li>
+          <li class="chip chip--outline">Community Events</li>
+        </ul>
 
-      <div class="catering__actions">
-        <a href="tel:2679035105" class="btn btn--primary">Ask About Catering</a>
-        <a href="tel:2679035105" class="catering__phone-link">Call (267) 903-5105</a>
+        <div class="catering__actions">
+          <a href="tel:2679035105" class="btn btn--primary">Ask About Catering</a>
+          <a href="tel:2679035105" class="catering__phone-link">Call (267) 903-5105</a>
+        </div>
       </div>
     </div>
   </section>
@@ -578,16 +604,13 @@
     <div class="container about__grid">
       <div class="about__text reveal">
         <span class="eyebrow">Our Table</span>
-        <h2>A little piece of Greece in Cedars.</h2>
-        <p>Greek Spot is a neighborhood destination for comforting Greek food, Mediterranean flavors and meals meant to be enjoyed together. Whether you're stopping in for a gyro, sharing a platter or feeding a whole gathering, we're here to make the table a little more delicious.</p>
+        <h2>A little piece <em>of Greece</em> in Cedars.</h2>
+        <p>Greek Spot is a neighborhood destination for gyros, souvlaki, salads, platters and classic Greek flavors made for sharing.</p>
+        <svg class="about__doodle" viewBox="0 0 100 20" aria-hidden="true"><use href="#icon-wave"/></svg>
       </div>
-      <div class="about__collage reveal">
+      <div class="about__media reveal">
         <div class="art-panel art-panel--blue" role="img" aria-label="Illustration of an ionic column, a nod to Greek architecture">
           <svg viewBox="0 0 40 100" aria-hidden="true"><use href="#icon-column"/></svg>
-        </div>
-        <div class="col">
-          <div class="art-panel art-panel--cream" role="img" aria-label="Illustration of an olive branch"><svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-olive"/></svg></div>
-          <div class="art-panel art-panel--olive" role="img" aria-label="Illustration of a Greek amphora"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#icon-amphora"/></svg></div>
         </div>
       </div>
     </div>
@@ -600,15 +623,21 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">A Peek Inside</span>
-        <h2>From Our Table</h2>
+        <h2>The Greek Spot vibe</h2>
       </div>
-      <div class="gallery__grid">
+      <div class="gallery__row">
         <div class="gallery__item reveal"><div class="art-panel art-panel--blue" role="img" aria-label="Close-up illustration of a Greek gyro"><svg viewBox="0 0 60 80" aria-hidden="true"><use href="#icon-gyro"/></svg></div></div>
         <div class="gallery__item reveal"><div class="art-panel art-panel--olive" role="img" aria-label="Illustration of a Greek salad"><svg viewBox="0 0 80 50" aria-hidden="true"><use href="#icon-bowl"/></svg></div></div>
-        <div class="gallery__item reveal"><div class="art-panel art-panel--terracotta" role="img" aria-label="Illustration of souvlaki skewers"><svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-skewer"/></svg></div></div>
+        <div class="gallery__item reveal"><div class="art-panel art-panel--orange" role="img" aria-label="Illustration of souvlaki skewers"><svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-skewer"/></svg></div></div>
         <div class="gallery__item reveal"><div class="art-panel art-panel--cream" role="img" aria-label="Illustration of pita and dips"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#icon-amphora"/></svg></div></div>
-        <div class="gallery__item reveal"><div class="art-panel art-panel--blue" role="img" aria-label="Illustration of grilled shrimp skewers"><svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-skewer"/></svg></div></div>
-        <div class="gallery__item reveal"><div class="art-panel art-panel--terracotta" role="img" aria-label="Illustration of baklava dessert"><svg viewBox="0 0 80 60" aria-hidden="true"><use href="#icon-baklava"/></svg></div></div>
+        <div class="gallery__item reveal"><div class="art-panel art-panel--yellow" role="img" aria-label="Illustration of baklava dessert"><svg viewBox="0 0 80 60" aria-hidden="true"><use href="#icon-baklava"/></svg></div></div>
+        <div class="gallery__item reveal"><div class="art-panel art-panel--blue" role="img" aria-label="Illustration of the Greek Spot dining table"><svg viewBox="0 0 120 80" aria-hidden="true"><use href="#icon-table"/></svg></div></div>
+      </div>
+      <div class="gallery__bubble reveal">
+        <span class="info-bubble info-bubble--center">
+          <svg aria-hidden="true"><use href="#icon-speech"/></svg>
+          Good food. Good people. Good Greek flavor.
+        </span>
       </div>
     </div>
   </section>
@@ -619,8 +648,8 @@
   <section class="visit" id="visit">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Come Say Hi</span>
-        <h2>Find Your Way to Greek Spot</h2>
+        <span class="eyebrow">Come See Us</span>
+        <h2>Find us in Cedars</h2>
       </div>
 
       <div class="visit__grid">
@@ -719,6 +748,9 @@
     <span>3401 Skippack Pike, Cedars, PA 19423 &middot; (267) 903-5105</span>
   </div>
 </footer>
+
+</div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
