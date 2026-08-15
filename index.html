@@ -175,6 +175,13 @@
       <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
       <path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
     </symbol>
+    <symbol id="icon-stamp-ring" viewBox="0 0 160 160">
+      <path id="stampCircle" fill="none" d="M80,14 a66,66 0 1,1 -0.1,0"/>
+      <text font-family="'DM Sans', sans-serif" font-weight="700" font-size="11.5" letter-spacing="3" fill="currentColor">
+        <textPath href="#stampCircle" startOffset="0%">GREEK SPOT &#8226; CEDARS, PA &#8226; MADE TO SHARE &#8226; </textPath>
+      </text>
+      <circle cx="80" cy="80" r="66" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -225,7 +232,10 @@
   <section class="hero" id="home">
     <div class="hero__texture" aria-hidden="true"></div>
     <div class="hero__overlay" aria-hidden="true"></div>
-    <svg class="hero__sun reveal-scale" style="transition-delay:.4s" viewBox="0 0 60 60" aria-hidden="true"><use href="#icon-sun"/></svg>
+    <div class="stamp reveal-scale" style="transition-delay:.4s" aria-hidden="true">
+      <svg class="stamp__ring" viewBox="0 0 160 160"><use href="#icon-stamp-ring"/></svg>
+      <svg class="stamp__icon" viewBox="0 0 60 60"><use href="#icon-sun"/></svg>
+    </div>
 
     <div class="container hero__inner">
       <span class="hero__badge reveal is-visible" style="--i:0">Cedars, Pennsylvania</span>
@@ -275,20 +285,28 @@
   <section class="strip" aria-label="Food highlights">
     <div class="container strip__row">
       <div class="strip__item reveal">
-        <div class="art-panel art-panel--terracotta" role="img" aria-label="Gyro illustration"><svg viewBox="0 0 60 80" aria-hidden="true"><use href="#icon-gyro"/></svg></div>
-        <span class="strip__cap">Gyros</span>
+        <div class="art-panel art-panel--terracotta" role="img" aria-label="Gyro illustration">
+          <svg viewBox="0 0 60 80" aria-hidden="true"><use href="#icon-gyro"/></svg>
+          <span class="art-panel__label">Gyros</span>
+        </div>
       </div>
       <div class="strip__item reveal" style="transition-delay:.08s">
-        <div class="art-panel art-panel--blue" role="img" aria-label="Souvlaki skewer illustration"><svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-skewer"/></svg></div>
-        <span class="strip__cap">Souvlaki</span>
+        <div class="art-panel art-panel--blue" role="img" aria-label="Souvlaki skewer illustration">
+          <svg viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-skewer"/></svg>
+          <span class="art-panel__label art-panel__label--alt">Souvlaki</span>
+        </div>
       </div>
       <div class="strip__item reveal" style="transition-delay:.16s">
-        <div class="art-panel art-panel--olive" role="img" aria-label="Greek salad bowl illustration"><svg viewBox="0 0 80 50" aria-hidden="true"><use href="#icon-bowl"/></svg></div>
-        <span class="strip__cap">Greek Salads</span>
+        <div class="art-panel art-panel--olive" role="img" aria-label="Greek salad bowl illustration">
+          <svg viewBox="0 0 80 50" aria-hidden="true"><use href="#icon-bowl"/></svg>
+          <span class="art-panel__label">Greek Salads</span>
+        </div>
       </div>
       <div class="strip__item reveal" style="transition-delay:.24s">
-        <div class="art-panel art-panel--cream" role="img" aria-label="Amphora illustration representing Greek favorites"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#icon-amphora"/></svg></div>
-        <span class="strip__cap">Greek Favorites</span>
+        <div class="art-panel art-panel--cream" role="img" aria-label="Amphora illustration representing Greek favorites">
+          <svg viewBox="0 0 60 100" aria-hidden="true"><use href="#icon-amphora"/></svg>
+          <span class="art-panel__label art-panel__label--alt">Greek Favorites</span>
+        </div>
       </div>
     </div>
   </section>
