@@ -199,6 +199,14 @@
     <symbol id="icon-scribble" viewBox="0 0 120 10" preserveAspectRatio="none">
       <path d="M2 6 Q20 2 38 6 T74 6 T110 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
     </symbol>
+    <!-- Wordmark logo: "GREEK SPOT" set on a shallow wave-arc baseline,
+         echoing the menu card's angular, wave-inspired lettering. -->
+    <symbol id="logo-wordmark" viewBox="0 0 360 76">
+      <path id="wordmarkArc" d="M6,54 Q180,8 354,54" fill="none"/>
+      <text font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="42" letter-spacing="1" fill="currentColor">
+        <textPath href="#wordmarkArc" startOffset="50%" text-anchor="middle">GREEK SPOT</textPath>
+      </text>
+    </symbol>
   </defs>
 </svg>
 
@@ -207,7 +215,10 @@
      ========================================================= -->
 <header class="site-header" id="site-header">
   <div class="container nav">
-    <a href="#home" class="wordmark">GREEK SPOT<span class="sub">Authentic Gyro &amp; Souvlaki</span></a>
+    <a href="#home" class="wordmark" aria-label="Greek Spot, home">
+      <svg class="wordmark__mark" viewBox="0 0 360 76" role="img" aria-label="Greek Spot"><use href="#logo-wordmark"/></svg>
+      <span class="sub">Authentic Gyro &amp; Souvlaki</span>
+    </a>
 
     <nav class="nav__links" aria-label="Primary">
       <a href="#menu">Menu</a>
@@ -262,17 +273,8 @@
       </div>
 
       <div class="hero__media" id="hero-media">
-        <div class="scene scene--hero" role="img" aria-label="A warm platter of Greek food, gyro meat, pita and tzatziki, set for sharing">
-          <div class="scene__glow"></div>
-          <div class="scene__blob"></div>
-          <div class="scene__blob scene__blob--sm2"></div>
-          <div class="scene__rim"></div>
-          <span class="scene__garnish" style="left:38%;top:44%;width:8px;height:8px;background:#8A9B5E;"></span>
-          <span class="scene__garnish" style="left:63%;top:40%;width:6px;height:6px;background:#C7472A;"></span>
-          <span class="scene__garnish" style="left:47%;top:66%;width:7px;height:7px;background:#F3E3B8;"></span>
-          <span class="scene__steam" style="left:44%;height:26px;animation-delay:0s;"></span>
-          <span class="scene__steam" style="left:52%;height:20px;animation-delay:1.1s;"></span>
-          <span class="scene__steam" style="left:60%;height:24px;animation-delay:2s;"></span>
+        <div class="scene scene--photo" role="img" aria-label="A shared Greek Spot platter of gyro meat, pita, fries and tzatziki">
+          <img class="scene__photo" src="assets/img/gyro-platter.jpg" alt="A Greek Spot platter of gyro meat, pita, fries and tzatziki, shared at the table" loading="eager" fetchpriority="high">
           <span class="scene__label">Greek Spot, Cedars PA</span>
         </div>
         <div class="stamp stamp--hero reveal-scale" style="transition-delay:.5s" aria-hidden="true">
@@ -299,31 +301,22 @@
         <svg class="intro__key" viewBox="0 0 200 20" aria-hidden="true"><use href="#icon-key"/></svg>
 
         <div class="scene-card">
-          <div class="scene scene--platter" role="img" aria-label="A generous Greek platter of grilled meat, pita, rice and tzatziki">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <div class="scene__blob scene__blob--sm"></div>
-            <div class="scene__rim"></div>
-            <span class="scene__steam" style="left:48%;height:22px;"></span>
-            <span class="scene__label">Platter</span>
+          <div class="scene scene--photo" role="img" aria-label="A generous Greek platter of grilled meat, pita, rice and tzatziki">
+            <img class="scene__photo" src="assets/img/gyro-platter.jpg" alt="A generous Greek platter of grilled meat, pita, rice and tzatziki" loading="lazy">
+          <span class="scene__label">Platter</span>
           </div>
         </div>
 
         <div class="scene-card">
-          <div class="scene scene--salad" role="img" aria-label="A fresh Greek salad with feta and olives">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <span class="scene__garnish" style="left:60%;top:42%;width:8px;height:8px;background:#C7472A;"></span>
-            <span class="scene__garnish" style="left:40%;top:60%;width:7px;height:7px;background:#F3E3B8;"></span>
+          <div class="scene scene--photo" role="img" aria-label="A fresh Greek salad with feta, tomato and cucumber">
+            <img class="scene__photo" src="assets/img/pita-tzatziki-salad.jpg" alt="A fresh Greek salad with feta, tomato and cucumber" loading="lazy">
           </div>
         </div>
 
         <div class="scene-card">
-          <div class="scene scene--gyro" role="img" aria-label="Pita, tzatziki and warm gyro meat">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <div class="scene__rim"></div>
-            <span class="scene__label scene__label--alt">Pita &amp; Tzatziki</span>
+          <div class="scene scene--photo" role="img" aria-label="Warm pita and creamy tzatziki">
+            <img class="scene__photo" src="assets/img/tzatziki-detail.jpg" alt="Warm pita and creamy tzatziki" loading="lazy">
+          <span class="scene__label scene__label--alt">Pita &amp; Tzatziki</span>
           </div>
         </div>
       </div>
@@ -340,41 +333,33 @@
     <div class="container strip__row">
       <div class="strip__item reveal">
         <div class="scene-card">
-          <div class="scene scene--gyro" role="img" aria-label="Gyro wrap with warm pita and gyro meat">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <div class="scene__rim"></div>
-            <span class="scene__steam" style="left:50%;height:20px;"></span>
-            <span class="scene__label">Gyros</span>
+          <div class="scene scene--photo" role="img" aria-label="Gyro meat, pita and fries">
+            <img class="scene__photo" src="assets/img/gyro-platter.jpg" alt="Gyro meat, pita and fries" loading="lazy">
+          <span class="scene__label">Gyros</span>
           </div>
         </div>
       </div>
       <div class="strip__item reveal" style="transition-delay:.08s">
         <div class="scene-card">
-          <div class="scene scene--souvlaki" role="img" aria-label="Souvlaki skewers grilling">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <span class="scene__label scene__label--alt">Souvlaki</span>
+          <div class="scene scene--photo" role="img" aria-label="Grilled souvlaki skewers with rice and lemon">
+            <img class="scene__photo" src="assets/img/souvlaki-skewers.jpg" alt="Grilled souvlaki skewers with rice and lemon" loading="lazy">
+          <span class="scene__label scene__label--alt">Souvlaki</span>
           </div>
         </div>
       </div>
       <div class="strip__item reveal" style="transition-delay:.16s">
         <div class="scene-card">
-          <div class="scene scene--salad" role="img" aria-label="Fresh Greek salad">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <span class="scene__garnish" style="left:58%;top:44%;width:7px;height:7px;background:#C7472A;"></span>
-            <span class="scene__label">Greek Salads</span>
+          <div class="scene scene--photo" role="img" aria-label="Fresh Greek salad with feta, olives and cucumber">
+            <img class="scene__photo" src="assets/img/pita-tzatziki-salad.jpg" alt="Fresh Greek salad with feta, olives and cucumber" loading="lazy">
+          <span class="scene__label">Greek Salads</span>
           </div>
         </div>
       </div>
       <div class="strip__item reveal" style="transition-delay:.24s">
         <div class="scene-card">
-          <div class="scene scene--platter" role="img" aria-label="Greek platter with grilled meat, rice and pita">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <div class="scene__blob scene__blob--sm"></div>
-            <span class="scene__label scene__label--alt">Platters</span>
+          <div class="scene scene--photo" role="img" aria-label="A shared spread of Greek mezethes">
+            <img class="scene__photo" src="assets/img/mezze-spread.jpg" alt="A shared spread of Greek mezethes" loading="lazy">
+          <span class="scene__label scene__label--alt">Platters</span>
           </div>
         </div>
       </div>
@@ -413,15 +398,9 @@
       </div>
       <div class="featured__media reveal">
         <div class="scene-card">
-          <div class="scene scene--platter" role="img" aria-label="A souvlaki platter with grilled meat, pita, fries, rice and tzatziki">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <div class="scene__blob scene__blob--sm"></div>
-            <div class="scene__blob scene__blob--sm2 scene__blob--olive"></div>
-            <div class="scene__rim"></div>
-            <span class="scene__steam" style="left:44%;height:24px;animation-delay:.3s;"></span>
-            <span class="scene__steam" style="left:56%;height:20px;animation-delay:1.4s;"></span>
-            <span class="scene__label">Souvlaki Platter</span>
+          <div class="scene scene--photo" role="img" aria-label="A souvlaki platter with grilled meat, pita, fries, rice and tzatziki">
+            <img class="scene__photo" src="assets/img/souvlaki-skewers.jpg" alt="A souvlaki platter with grilled meat, pita, fries, rice and tzatziki" loading="lazy">
+          <span class="scene__label">Souvlaki Platter</span>
           </div>
         </div>
         <p class="featured__note hand">made fresh &bull; made to share</p>
@@ -441,9 +420,8 @@
           <p>From Greek classics to hearty platters, there is something for everyone at the table.</p>
         </div>
         <div class="scene-card">
-          <div class="scene scene--gyro" role="img" aria-label="Spanakopita, filo pastry with spinach and feta">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
+          <div class="scene scene--photo" role="img" aria-label="Fresh Greek mezethes, feta with olive oil and herbs">
+            <img class="scene__photo" src="assets/img/feta-detail.jpg" alt="Fresh Greek mezethes, feta with olive oil and herbs" loading="lazy">
           </div>
         </div>
       </div>
@@ -671,13 +649,8 @@
        ========================================================= -->
   <section class="moment">
     <div class="moment__scene" aria-hidden="true">
-      <div class="scene scene--table" role="img" aria-label="A shared table of Greek food, pita, dips and grilled plates">
-        <div class="scene__table-edge"></div>
-        <div class="scene__glow"></div>
-        <div class="scene__blob"></div>
-        <div class="scene__blob scene__blob--sm scene__blob--olive"></div>
-        <div class="scene__blob scene__blob--sm2 scene__blob--wood"></div>
-        <div class="scene__rim"></div>
+      <div class="scene scene--photo" role="img" aria-label="A shared Greek Spot table of gyro meat, pita, fries and tzatziki">
+        <img class="scene__photo" src="assets/img/gyro-platter.jpg" alt="A shared Greek Spot table of gyro meat, pita, fries and tzatziki" loading="lazy">
       </div>
     </div>
     <div class="moment__overlay" aria-hidden="true"></div>
@@ -694,15 +667,8 @@
     <div class="container catering__grid">
       <div class="catering__media reveal">
         <div class="scene-card">
-          <div class="scene scene--catering" role="img" aria-label="An abundant Mediterranean catering spread with shared dishes for a table">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <div class="scene__blob scene__blob--sm"></div>
-            <div class="scene__blob scene__blob--sm2"></div>
-            <div class="scene__rim"></div>
-            <span class="scene__garnish" style="left:30%;top:80%;width:8px;height:8px;background:#F3E3B8;"></span>
-            <span class="scene__garnish" style="left:70%;top:30%;width:7px;height:7px;background:#C7472A;"></span>
-            <span class="scene__steam" style="left:50%;height:22px;"></span>
+          <div class="scene scene--photo" role="img" aria-label="An abundant Mediterranean spread of mezethes, ready for a table">
+            <img class="scene__photo" src="assets/img/mezze-spread.jpg" alt="An abundant Mediterranean spread of hummus, olives, feta and Greek salad, ready for a table" loading="lazy">
             <span class="scene__label">Catering Spread</span>
           </div>
         </div>
@@ -738,13 +704,8 @@
       <div class="about__media mask-trigger" id="about-media">
         <div class="mask-inner">
           <div class="scene-card">
-            <div class="scene scene--table" role="img" aria-label="A cozy Greek Spot dining table with shared plates">
-              <div class="scene__table-edge"></div>
-              <div class="scene__glow"></div>
-              <div class="scene__blob"></div>
-              <div class="scene__blob scene__blob--sm scene__blob--olive"></div>
-              <div class="scene__rim"></div>
-              <span class="scene__garnish" style="left:34%;top:38%;width:7px;height:7px;background:#F3E3B8;"></span>
+            <div class="scene scene--photo" role="img" aria-label="A cozy table set with Greek salad, pita and tzatziki">
+              <img class="scene__photo" src="assets/img/pita-tzatziki-salad.jpg" alt="A cozy table set with grilled pita, tzatziki and Greek salad" loading="lazy">
             </div>
           </div>
         </div>
@@ -771,29 +732,29 @@
       <div class="gallery__row">
         <div class="gallery__item reveal" style="transition-delay:.02s">
           <div class="scene-card">
-            <div class="scene scene--gyro" role="img" aria-label="Close-up of a Greek gyro wrap">
-              <div class="scene__glow"></div><div class="scene__blob"></div><div class="scene__rim"></div>
-              <span class="scene__steam" style="left:50%;height:20px;"></span>
+            <div class="scene scene--photo" role="img" aria-label="Close-up of a Greek gyro platter">
+              <img class="scene__photo" src="assets/img/gyro-platter.jpg" alt="Close-up of a Greek gyro platter with fries and pita" loading="lazy">
             </div>
           </div>
         </div>
         <div class="gallery__item reveal" style="transition-delay:.09s">
           <div class="scene-card">
-            <div class="scene scene--salad" role="img" aria-label="Fresh Greek salad with feta and olives">
-              <div class="scene__glow"></div><div class="scene__blob"></div>
-              <span class="scene__garnish" style="left:58%;top:42%;width:7px;height:7px;background:#C7472A;"></span>
+            <div class="scene scene--photo" role="img" aria-label="Feta topped with olive oil, herbs and capers">
+              <img class="scene__photo" src="assets/img/feta-detail.jpg" alt="Feta topped with olive oil, herbs and capers, surrounded by fresh tomato and cucumber" loading="lazy">
             </div>
           </div>
         </div>
         <div class="gallery__item reveal" style="transition-delay:.16s">
           <div class="scene-card">
-            <div class="scene scene--souvlaki" role="img" aria-label="Souvlaki skewers on the grill"><div class="scene__glow"></div><div class="scene__blob"></div></div>
+            <div class="scene scene--photo" role="img" aria-label="Grilled souvlaki skewers with rice">
+              <img class="scene__photo" src="assets/img/souvlaki-skewers.jpg" alt="Grilled souvlaki skewers with rice, lemon and pita" loading="lazy">
+            </div>
           </div>
         </div>
         <div class="gallery__item reveal" style="transition-delay:.05s">
           <div class="scene-card">
-            <div class="scene scene--gyro" role="img" aria-label="Pita and tzatziki spread on the table">
-              <div class="scene__glow"></div><div class="scene__blob"></div><div class="scene__rim"></div>
+            <div class="scene scene--photo" role="img" aria-label="Grilled pita, tzatziki and Greek salad spread on the table">
+              <img class="scene__photo" src="assets/img/pita-tzatziki-salad.jpg" alt="Grilled pita, tzatziki and Greek salad spread on the table" loading="lazy">
             </div>
           </div>
         </div>
@@ -804,8 +765,8 @@
         </div>
         <div class="gallery__item reveal" style="transition-delay:.2s">
           <div class="scene-card">
-            <div class="scene scene--platter" role="img" aria-label="Spanakopita, a Greek filo pastry">
-              <div class="scene__glow"></div><div class="scene__blob"></div><div class="scene__blob scene__blob--sm"></div>
+            <div class="scene scene--photo" role="img" aria-label="Tzatziki and warm pita, close up">
+              <img class="scene__photo" src="assets/img/tzatziki-detail.jpg" alt="Tzatziki and warm pita, close up" loading="lazy">
             </div>
           </div>
         </div>
@@ -861,11 +822,8 @@
         </div>
 
         <div class="directions-card reveal">
-          <div class="scene scene--table" role="img" aria-label="A wide view of a Greek Spot table spread, a preview for finding directions">
-            <div class="scene__table-edge"></div>
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
-            <div class="scene__rim"></div>
+          <div class="scene scene--photo" role="img" aria-label="A wide view of a Greek Spot souvlaki platter">
+            <img class="scene__photo" src="assets/img/souvlaki-skewers.jpg" alt="A wide view of a Greek Spot souvlaki platter with rice and pita" loading="lazy">
           </div>
           <div class="directions-card__foot">
             <p>3401 Skippack Pike, Cedars, PA 19423</p>
@@ -897,7 +855,9 @@
 <footer class="site-footer">
   <div class="container footer__grid">
     <div class="footer__brand">
-      <a href="#home" class="wordmark">GREEK SPOT</a>
+      <a href="#home" class="wordmark wordmark--lg" aria-label="Greek Spot, home">
+        <svg class="wordmark__mark" viewBox="0 0 360 76" role="img" aria-label="Greek Spot"><use href="#logo-wordmark"/></svg>
+      </a>
       <p>Authentic Gyro &amp; Souvlaki</p>
       <address>
         3401 Skippack Pike<br>
