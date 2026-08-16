@@ -2,44 +2,32 @@
   "use strict";
 
   /* ---------------------------------------------------------
-     Sticky header shadow on scroll
-     --------------------------------------------------------- */
-  var header = document.getElementById("site-header");
-  function onScroll() {
-    if (window.scrollY > 8) {
-      header.classList.add("is-scrolled");
-    } else {
-      header.classList.remove("is-scrolled");
-    }
-  }
-  document.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  /* ---------------------------------------------------------
      Mobile nav toggle
      --------------------------------------------------------- */
   var navToggle = document.getElementById("nav-toggle");
   var mobileMenu = document.getElementById("mobile-menu");
   var menuOpen = false;
 
-  function setMenu(open) {
-    menuOpen = open;
-    mobileMenu.classList.toggle("is-open", open);
-    navToggle.setAttribute("aria-expanded", String(open));
-    document.body.classList.toggle("menu-open", open);
+  if (navToggle && mobileMenu) {
+    function setMenu(open) {
+      menuOpen = open;
+      mobileMenu.classList.toggle("is-open", open);
+      navToggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("menu-open", open);
+    }
+
+    navToggle.addEventListener("click", function () {
+      setMenu(!menuOpen);
+    });
+
+    mobileMenu.querySelectorAll("[data-menu-link]").forEach(function (link) {
+      link.addEventListener("click", function () { setMenu(false); });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menuOpen) setMenu(false);
+    });
   }
-
-  navToggle.addEventListener("click", function () {
-    setMenu(!menuOpen);
-  });
-
-  mobileMenu.querySelectorAll("[data-menu-link]").forEach(function (link) {
-    link.addEventListener("click", function () { setMenu(false); });
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && menuOpen) setMenu(false);
-  });
 
   /* ---------------------------------------------------------
      Menu category tabs
@@ -68,44 +56,21 @@
   });
 
   function activateTab(tab) {
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var outgoing = tabs
-      .filter(function (t) { return t.getAttribute("aria-selected") === "true" && t !== tab; })
-      .map(function (t) { return panels[t.dataset.tab]; });
-
     tabs.forEach(function (t) {
       var selected = t === tab;
       t.setAttribute("aria-selected", String(selected));
       t.tabIndex = selected ? 0 : -1;
+      var panel = panels[t.dataset.tab];
+      panel.hidden = !selected;
+      panel.classList.toggle("is-active", selected);
     });
-
-    var incoming = panels[tab.dataset.tab];
-
-    if (reduceMotion || !outgoing.length) {
-      outgoing.forEach(function (p) { p.hidden = true; p.classList.remove("is-active", "is-leaving"); });
-      incoming.hidden = false;
-      incoming.classList.add("is-active");
-      return;
-    }
-
-    // Fade the old panel out (translateY 0 -> 8px, opacity 1 -> 0),
-    // then swap and fade the new one in (translateY 12px -> 0, opacity 0 -> 1).
-    outgoing.forEach(function (p) {
-      p.classList.remove("is-active");
-      p.classList.add("is-leaving");
-    });
-    window.setTimeout(function () {
-      outgoing.forEach(function (p) { p.hidden = true; p.classList.remove("is-leaving"); });
-      incoming.hidden = false;
-      incoming.classList.add("is-active");
-    }, 220);
   }
 
   /* ---------------------------------------------------------
-     Scroll reveal animations
+     Subtle fade-up for section headings on scroll
      --------------------------------------------------------- */
-  var revealEls = document.querySelectorAll(".reveal, .reveal-scale, .mask-trigger");
-  if ("IntersectionObserver" in window) {
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -120,44 +85,6 @@
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
-  }
-
-  /* ---------------------------------------------------------
-     Subtle hero parallax — desktop only, tiny movement, disabled
-     for reduced motion. Capped well under the ~25-40px target.
-     --------------------------------------------------------- */
-  var heroMedia = document.getElementById("hero-media");
-  var reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var desktopQuery = window.matchMedia("(min-width: 900px)");
-
-  if (heroMedia) {
-    var heroScene = heroMedia.querySelector(".scene");
-    var parallaxTicking = false;
-    var MAX_PARALLAX = 34;
-
-    function updateHeroParallax() {
-      if (reduceMotionQuery.matches || !desktopQuery.matches) {
-        heroScene.style.transform = "";
-        return;
-      }
-      var offset = Math.max(-MAX_PARALLAX, Math.min(MAX_PARALLAX, window.scrollY * 0.04));
-      heroScene.style.transform = "translateY(" + offset + "px)";
-    }
-
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (!parallaxTicking) {
-          window.requestAnimationFrame(function () {
-            updateHeroParallax();
-            parallaxTicking = false;
-          });
-          parallaxTicking = true;
-        }
-      },
-      { passive: true }
-    );
-    updateHeroParallax();
   }
 
   /* ---------------------------------------------------------
@@ -182,7 +109,6 @@
   var TZ = "America/New_York";
 
   function getRestaurantNow() {
-    // Build a reliable {weekday, minutes} reading for the restaurant's timezone
     var parts = new Intl.DateTimeFormat("en-US", {
       timeZone: TZ,
       weekday: "short",
@@ -204,7 +130,7 @@
 
   function renderHours() {
     var now = getRestaurantNow();
-    if (now.weekday === undefined) return; // Intl not fully supported, skip status
+    if (now.weekday === undefined) return;
 
     var todayRange = HOURS[now.weekday];
     var isOpen = !!todayRange && now.minutes >= todayRange[0] && now.minutes < todayRange[1];
