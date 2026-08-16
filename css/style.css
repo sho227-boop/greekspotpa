@@ -97,7 +97,7 @@ section[id] { scroll-margin-top: 78px; }
 @media (min-width: 640px) {
   .site-shell { border-radius: var(--radius-lg); }
   .site-shell > .site-header { border-top-left-radius: var(--radius-lg); border-top-right-radius: var(--radius-lg); }
-  .site-shell > .site-footer { border-bottom-left-radius: var(--radius-lg); border-bottom-right-radius: var(--radius-lg); overflow: hidden; }
+  .site-shell > *:last-child { border-bottom-left-radius: var(--radius-lg); border-bottom-right-radius: var(--radius-lg); overflow: hidden; }
   .hero { border-top-left-radius: var(--radius-lg); border-top-right-radius: var(--radius-lg); overflow: hidden; }
 }
 
@@ -413,15 +413,6 @@ em, .accent-serif {
 .scene--platter .scene__blob { background: linear-gradient(160deg, #EFC57C 0%, #CE8944 55%, #874B22 100%); }
 .scene--platter .scene__blob--sm { background: linear-gradient(160deg, #9AA96F 0%, #6F7955 100%); }
 
-.scene--favorites { background: linear-gradient(155deg, #E6BE73 0%, #C9973F 55%, #8A611F 100%); }
-.scene--favorites .scene__blob { background: linear-gradient(150deg, #FBE2AC 0%, #E3B45D 55%, #A6752C 100%); border-radius: 18%; }
-.scene--favorites .scene__blob::before {
-  content: ""; position: absolute; inset: 0; border-radius: inherit;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(90,55,10,0.18) 0 2px, transparent 2px 14px),
-    repeating-linear-gradient(-45deg, rgba(90,55,10,0.18) 0 2px, transparent 2px 14px);
-}
-
 .scene--catering { background: linear-gradient(155deg, #B4703A 0%, #8A4F27 55%, #57331B 100%); }
 .scene--catering .scene__blob { background: linear-gradient(160deg, #EFC57C 0%, #C6813C 55%, #7A4322 100%); }
 .scene--catering .scene__blob--sm { background: linear-gradient(160deg, #A7B27C 0%, #6F7955 100%); }
@@ -480,11 +471,22 @@ em, .accent-serif {
   align-items: flex-start;
   line-height: 1;
 }
+.wordmark__row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
 .wordmark__mark {
-  width: clamp(108px, 12vw, 150px);
+  width: clamp(122px, 13vw, 168px);
   height: auto;
   color: var(--blue-deep);
   display: block;
+}
+.wordmark__laurel {
+  width: clamp(18px, 2vw, 24px);
+  height: auto;
+  color: var(--terracotta);
+  flex-shrink: 0;
 }
 .wordmark span.sub {
   font-family: var(--font-body);
@@ -492,10 +494,11 @@ em, .accent-serif {
   font-size: 0.5rem;
   letter-spacing: 0.24em;
   color: var(--terracotta);
-  margin-top: 0.1em;
+  margin-top: 0.25em;
   text-transform: uppercase;
 }
-.wordmark--lg .wordmark__mark { width: clamp(180px, 22vw, 240px); }
+.wordmark--lg .wordmark__mark { width: clamp(200px, 22vw, 260px); }
+.wordmark--lg .wordmark__laurel { width: clamp(28px, 3vw, 38px); }
 
 .nav__links { display: none; align-items: center; gap: 0.4rem; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.03em; text-transform: uppercase; }
 .nav__links a { padding: 0.55em 1.05em; border-radius: 999px; background: var(--blue); color: var(--cream); transition: background-color 0.2s var(--ease), transform 0.15s var(--ease); }
@@ -695,21 +698,6 @@ body.menu-open { overflow: hidden; }
 .menu-cta p { color: var(--blue-ink); opacity: 0.8; }
 
 /* =========================================================
-   Marquee — thin scrolling text strip
-   ========================================================= */
-.marquee { background: var(--blue-deep); overflow: hidden; padding-block: 0.9rem; }
-.marquee__track { display: flex; width: max-content; animation: marquee-scroll 30s linear infinite; }
-.marquee__set { display: flex; align-items: center; flex-shrink: 0; }
-.marquee__set span {
-  font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
-  font-size: clamp(1rem, 2.4vw, 1.35rem); color: var(--cream); letter-spacing: 0.03em;
-  padding-inline: 1.1rem; white-space: nowrap;
-}
-.marquee__set span.dot { color: var(--gold); padding-inline: 0.5rem; }
-@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
-
-/* =========================================================
    Full-width food moment break
    ========================================================= */
 .moment { position: relative; min-height: 72vh; overflow: hidden; display: flex; align-items: flex-end; }
@@ -737,18 +725,6 @@ body.menu-open { overflow: hidden; }
 .catering__phone-link { font-weight: 800; font-size: 0.85rem; color: var(--terracotta-dark); text-decoration: underline; text-underline-offset: 4px; min-height: 44px; display: inline-flex; align-items: center; }
 .catering__note { margin-top: 1.2rem; font-size: 1.2rem; }
 
-/* =========================================================
-   About — real-feeling photo left, clip-path reveal
-   ========================================================= */
-.about { padding-block: var(--section-pad); background: var(--offwhite); overflow: hidden; }
-.about__grid { display: grid; gap: clamp(2rem, 5vw, 3rem); align-items: center; }
-@media (min-width: 900px) { .about__grid { grid-template-columns: 1.1fr 0.9fr; } }
-.about__text h2 { font-size: clamp(1.9rem, 5vw, 2.8rem); margin-top: 0.5rem; text-transform: uppercase; }
-.about__text p { margin-top: 1.1rem; font-size: 1.02rem; max-width: 48ch; color: var(--blue-ink); opacity: 0.88; }
-.about__media { width: 100%; }
-.about__media .scene { aspect-ratio: 6/5; }
-.about__doodle { width: 54px; height: auto; color: var(--terracotta); margin-top: 1rem; }
-.about__note { margin-top: 1.2rem; font-size: 1.25rem; }
 
 /* =========================================================
    Gallery — loose masonry, real staggered scroll motion
@@ -819,6 +795,16 @@ body.menu-open { overflow: hidden; }
 .directions-card__foot { background: var(--blue-deep); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
 .directions-card__foot p { color: #D9E3EE; font-size: 0.92rem; }
 .directions-card__foot .btn { width: 100%; }
+.directions-card--plain { justify-content: center; }
+.directions-card--plain .directions-card__foot {
+  flex: 1;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  align-items: center;
+}
+.directions-card--plain .directions-card__foot p { font-family: var(--font-display); font-size: 1.2rem; color: var(--cream); }
+.directions-card--plain .directions-card__foot .btn { width: auto; }
 
 /* =========================================================
    Final CTA
@@ -840,6 +826,7 @@ body.menu-open { overflow: hidden; }
 .footer__grid { display: grid; gap: 2rem; }
 @media (min-width: 760px) { .footer__grid { grid-template-columns: 1.3fr 1fr 1fr; } }
 .footer__brand .wordmark__mark { color: var(--cream); }
+.footer__brand .wordmark__laurel { color: var(--gold); }
 .footer__brand .wordmark span.sub { color: var(--gold); }
 .footer__brand p { margin-top: 0.7rem; font-weight: 800; letter-spacing: 0.04em; font-size: 0.78rem; color: var(--gold); text-transform: uppercase; }
 .footer__brand address { margin-top: 0.9rem; font-style: normal; line-height: 1.7; font-size: 0.92rem; color: #D9E3EE; }
@@ -850,7 +837,16 @@ body.menu-open { overflow: hidden; }
 .footer__col a { font-size: 0.92rem; color: #D9E3EE; transition: color 0.2s var(--ease); }
 .footer__col a:hover { color: var(--terracotta); }
 
-.footer__bottom { margin-top: 2.5rem; padding-top: 1.4rem; border-top: 1px solid rgba(247,235,216,0.14); display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: space-between; font-size: 0.78rem; color: #9FB6CE; }
+.footer__bottom { margin-top: 2.5rem; padding-top: 1.4rem; border-top: 1px solid rgba(247,235,216,0.14); display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #9FB6CE; }
+.footer__legal-links { display: inline-flex; align-items: center; gap: 0.5em; }
+.footer__legal-links a { color: #9FB6CE; transition: color 0.2s var(--ease); }
+.footer__legal-links a:hover { color: var(--terracotta); }
+
+.legal { background: var(--cream); padding-block: clamp(2rem, 5vw, 2.75rem); border-top: 1px solid var(--cream-soft); }
+.legal__inner { max-width: 68ch; }
+.legal h3 { font-size: 1.1rem; text-transform: uppercase; }
+.legal p { margin-top: 0.6rem; font-size: 0.88rem; color: var(--blue-ink); opacity: 0.82; line-height: 1.6; }
+.legal + .legal { border-top: 1px solid rgba(15,46,78,0.08); }
 
 /* =========================================================
    Skip link
@@ -866,6 +862,5 @@ body.menu-open { overflow: hidden; }
   .reveal, .reveal-scale { transition-duration: 0.5s; }
   .reveal { transform: translateY(16px); }
   .hero__media .scene { animation-duration: 0.8s; }
-  .marquee__track { animation-duration: 22s; }
   .moment__scene .scene { animation-duration: 16s; }
 }

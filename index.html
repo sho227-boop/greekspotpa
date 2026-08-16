@@ -199,13 +199,25 @@
     <symbol id="icon-scribble" viewBox="0 0 120 10" preserveAspectRatio="none">
       <path d="M2 6 Q20 2 38 6 T74 6 T110 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
     </symbol>
-    <!-- Wordmark logo: "GREEK SPOT" set on a shallow wave-arc baseline,
-         echoing the menu card's angular, wave-inspired lettering. -->
-    <symbol id="logo-wordmark" viewBox="0 0 360 76">
-      <path id="wordmarkArc" d="M6,54 Q180,8 354,54" fill="none"/>
-      <text font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="42" letter-spacing="1" fill="currentColor">
-        <textPath href="#wordmarkArc" startOffset="50%" text-anchor="middle">GREEK SPOT</textPath>
-      </text>
+    <!-- Wordmark logo: straight-set "GREEK SPOT" with a small laurel
+         flourish flanking each side, matching the restaurant's actual
+         logo (deep blue menu card / Google Business listing). -->
+    <symbol id="logo-wordmark" viewBox="0 0 360 60">
+      <text x="180" y="42" font-family="'DM Serif Display', serif" font-weight="400" font-size="38" letter-spacing="2" text-anchor="middle" fill="currentColor">GREEK SPOT</text>
+    </symbol>
+    <symbol id="icon-laurel-left" viewBox="0 0 60 34">
+      <path d="M54 6 C40 8 24 14 6 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="42" cy="9.5" rx="6" ry="2.4" transform="rotate(12 42 9.5)" fill="currentColor"/>
+      <ellipse cx="29" cy="15" rx="6" ry="2.4" transform="rotate(28 29 15)" fill="currentColor"/>
+      <ellipse cx="17" cy="21.5" rx="5.5" ry="2.2" transform="rotate(42 17 21.5)" fill="currentColor"/>
+      <circle cx="6" cy="28" r="2.6" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-laurel-right" viewBox="0 0 60 34">
+      <path d="M6 6 C20 8 36 14 54 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="18" cy="9.5" rx="6" ry="2.4" transform="rotate(-12 18 9.5)" fill="currentColor"/>
+      <ellipse cx="31" cy="15" rx="6" ry="2.4" transform="rotate(-28 31 15)" fill="currentColor"/>
+      <ellipse cx="43" cy="21.5" rx="5.5" ry="2.2" transform="rotate(-42 43 21.5)" fill="currentColor"/>
+      <circle cx="54" cy="28" r="2.6" fill="currentColor"/>
     </symbol>
   </defs>
 </svg>
@@ -216,14 +228,17 @@
 <header class="site-header" id="site-header">
   <div class="container nav">
     <a href="#home" class="wordmark" aria-label="Greek Spot, home">
-      <svg class="wordmark__mark" viewBox="0 0 360 76" role="img" aria-label="Greek Spot"><use href="#logo-wordmark"/></svg>
+      <span class="wordmark__row">
+        <svg class="wordmark__laurel" viewBox="0 0 60 34" aria-hidden="true"><use href="#icon-laurel-left"/></svg>
+        <svg class="wordmark__mark" viewBox="0 0 360 60" role="img" aria-label="Greek Spot"><use href="#logo-wordmark"/></svg>
+        <svg class="wordmark__laurel" viewBox="0 0 60 34" aria-hidden="true"><use href="#icon-laurel-right"/></svg>
+      </span>
       <span class="sub">Authentic Gyro &amp; Souvlaki</span>
     </a>
 
     <nav class="nav__links" aria-label="Primary">
       <a href="#menu">Menu</a>
       <a href="#catering">Catering</a>
-      <a href="#about">About</a>
       <a href="#visit">Visit</a>
     </nav>
 
@@ -241,7 +256,6 @@
   <nav class="mobile-menu__links" aria-label="Mobile">
     <a href="#menu" data-menu-link>Menu</a>
     <a href="#catering" data-menu-link>Catering</a>
-    <a href="#about" data-menu-link>About</a>
     <a href="#visit" data-menu-link>Visit</a>
   </nav>
   <div class="mobile-menu__foot">
@@ -258,7 +272,6 @@
   <section class="hero" id="home">
     <div class="hero__grid">
       <div class="hero__copy">
-        <span class="hero__label anim">Cedars, Pennsylvania</span>
         <p class="hero__sub anim">Authentic Gyro &amp; Souvlaki</p>
         <h1 class="hero__title">
           <span class="hero__word"><span>Greek Food</span></span><br>
@@ -333,8 +346,8 @@
     <div class="container strip__row">
       <div class="strip__item reveal">
         <div class="scene-card">
-          <div class="scene scene--photo" role="img" aria-label="Gyro meat, pita and fries">
-            <img class="scene__photo" src="assets/img/gyro-platter.jpg" alt="Gyro meat, pita and fries" loading="lazy">
+          <div class="scene scene--photo" role="img" aria-label="Gyro wrap with warm pita and fries">
+            <img class="scene__photo" src="assets/img/gyro-wrap.jpg" alt="Gyro wrap with warm pita and fries" loading="lazy">
           <span class="scene__label">Gyros</span>
           </div>
         </div>
@@ -365,9 +378,8 @@
       </div>
       <div class="strip__item reveal" style="transition-delay:.32s">
         <div class="scene-card">
-          <div class="scene scene--favorites" role="img" aria-label="Baklava and Greek desserts">
-            <div class="scene__glow"></div>
-            <div class="scene__blob"></div>
+          <div class="scene scene--photo" role="img" aria-label="Baklava, phyllo with walnuts and honey">
+            <img class="scene__photo" src="assets/img/baklava.jpg" alt="Baklava, phyllo with walnuts and honey" loading="lazy">
             <span class="scene__label">Greek Favorites</span>
           </div>
         </div>
@@ -392,7 +404,6 @@
         <p>From gyros and souvlaki to fresh salads, pita, mezethes and comforting Greek favorites, there is something for every appetite.</p>
         <div class="featured__actions">
           <a href="#menu" class="chip chip--orange">Menu</a>
-          <a href="#catering" class="chip chip--orange">Catering</a>
           <a href="tel:2679035105" class="chip chip--orange">Call to Order</a>
         </div>
       </div>
@@ -413,17 +424,10 @@
        ========================================================= -->
   <section class="menu-section" id="menu">
     <div class="container">
-      <div class="section-head section-head--row reveal">
-        <div>
-          <span class="eyebrow">What's Cooking</span>
-          <h2>Our Menu</h2>
-          <p>From Greek classics to hearty platters, there is something for everyone at the table.</p>
-        </div>
-        <div class="scene-card">
-          <div class="scene scene--photo" role="img" aria-label="Fresh Greek mezethes, feta with olive oil and herbs">
-            <img class="scene__photo" src="assets/img/feta-detail.jpg" alt="Fresh Greek mezethes, feta with olive oil and herbs" loading="lazy">
-          </div>
-        </div>
+      <div class="section-head reveal">
+        <span class="eyebrow">What's Cooking</span>
+        <h2>Our Menu</h2>
+        <p>From Greek classics to hearty platters, there is something for everyone at the table.</p>
       </div>
 
       <div class="menu-tabs" role="tablist" aria-label="Menu categories" id="menu-tabs">
@@ -630,19 +634,6 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       MARQUEE
-       ========================================================= -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <div class="marquee__set">
-        <span>Gyros</span><span class="dot">&bull;</span><span>Souvlaki</span><span class="dot">&bull;</span><span>Tzatziki</span><span class="dot">&bull;</span><span>Greek Salads</span><span class="dot">&bull;</span><span>Pita</span><span class="dot">&bull;</span><span>Baklava</span><span class="dot">&bull;</span><span>Catering</span><span class="dot">&bull;</span><span>Cedars PA</span><span class="dot">&bull;</span>
-      </div>
-      <div class="marquee__set">
-        <span>Gyros</span><span class="dot">&bull;</span><span>Souvlaki</span><span class="dot">&bull;</span><span>Tzatziki</span><span class="dot">&bull;</span><span>Greek Salads</span><span class="dot">&bull;</span><span>Pita</span><span class="dot">&bull;</span><span>Baklava</span><span class="dot">&bull;</span><span>Catering</span><span class="dot">&bull;</span><span>Cedars PA</span><span class="dot">&bull;</span>
-      </div>
-    </div>
-  </div>
 
   <!-- =========================================================
        FULL-WIDTH FOOD MOMENT
@@ -696,29 +687,6 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       ABOUT
-       ========================================================= -->
-  <section class="about" id="about">
-    <div class="container about__grid">
-      <div class="about__media mask-trigger" id="about-media">
-        <div class="mask-inner">
-          <div class="scene-card">
-            <div class="scene scene--photo" role="img" aria-label="A cozy table set with Greek salad, pita and tzatziki">
-              <img class="scene__photo" src="assets/img/pita-tzatziki-salad.jpg" alt="A cozy table set with grilled pita, tzatziki and Greek salad" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="about__text reveal">
-        <span class="eyebrow">Our Table</span>
-        <h2>A little piece <em>of Greece</em> in Cedars.</h2>
-        <p>Greek Spot is a neighborhood spot for gyros, souvlaki, fresh salads and generous Greek plates — simple food, full flavor, and plenty to share.</p>
-        <svg class="about__doodle" viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-olive"/></svg>
-        <p class="about__note hand">come for the gyro, stay for the seconds.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================
        GALLERY
@@ -732,15 +700,15 @@
       <div class="gallery__row">
         <div class="gallery__item reveal" style="transition-delay:.02s">
           <div class="scene-card">
-            <div class="scene scene--photo" role="img" aria-label="Close-up of a Greek gyro platter">
-              <img class="scene__photo" src="assets/img/gyro-platter.jpg" alt="Close-up of a Greek gyro platter with fries and pita" loading="lazy">
+            <div class="scene scene--photo" role="img" aria-label="Close-up of a Greek gyro wrap with fries">
+              <img class="scene__photo" src="assets/img/gyro-wrap.jpg" alt="Close-up of a Greek gyro wrap with fries" loading="lazy">
             </div>
           </div>
         </div>
         <div class="gallery__item reveal" style="transition-delay:.09s">
           <div class="scene-card">
-            <div class="scene scene--photo" role="img" aria-label="Feta topped with olive oil, herbs and capers">
-              <img class="scene__photo" src="assets/img/feta-detail.jpg" alt="Feta topped with olive oil, herbs and capers, surrounded by fresh tomato and cucumber" loading="lazy">
+            <div class="scene scene--photo" role="img" aria-label="Spanakopita, filo pastry with spinach and feta">
+              <img class="scene__photo" src="assets/img/spanakopita.jpg" alt="Spanakopita, filo pastry with spinach and feta" loading="lazy">
             </div>
           </div>
         </div>
@@ -760,7 +728,9 @@
         </div>
         <div class="gallery__item reveal" style="transition-delay:.12s">
           <div class="scene-card">
-            <div class="scene scene--favorites" role="img" aria-label="Baklava, a Greek dessert"><div class="scene__glow"></div><div class="scene__blob"></div></div>
+            <div class="scene scene--photo" role="img" aria-label="Baklava, phyllo with walnuts and honey">
+              <img class="scene__photo" src="assets/img/baklava.jpg" alt="Baklava, phyllo with walnuts and honey" loading="lazy">
+            </div>
           </div>
         </div>
         <div class="gallery__item reveal" style="transition-delay:.2s">
@@ -803,7 +773,6 @@
               <a class="btn btn--primary" href="https://www.google.com/maps/dir/?api=1&destination=3401+Skippack+Pike%2C+Cedars%2C+PA+19423" target="_blank" rel="noopener">Get Directions</a>
               <a class="btn btn--outline" href="tel:2679035105">Call Us</a>
             </div>
-            <p class="visit__note hand">come hungry.</p>
           </div>
 
           <div class="visit__card hours-card">
@@ -821,10 +790,7 @@
           </div>
         </div>
 
-        <div class="directions-card reveal">
-          <div class="scene scene--photo" role="img" aria-label="A wide view of a Greek Spot souvlaki platter">
-            <img class="scene__photo" src="assets/img/souvlaki-skewers.jpg" alt="A wide view of a Greek Spot souvlaki platter with rice and pita" loading="lazy">
-          </div>
+        <div class="directions-card directions-card--plain reveal">
           <div class="directions-card__foot">
             <p>3401 Skippack Pike, Cedars, PA 19423</p>
             <a class="btn btn--primary btn--lg" href="https://www.google.com/maps/dir/?api=1&destination=3401+Skippack+Pike%2C+Cedars%2C+PA+19423" target="_blank" rel="noopener">Open in Google Maps</a>
@@ -856,7 +822,11 @@
   <div class="container footer__grid">
     <div class="footer__brand">
       <a href="#home" class="wordmark wordmark--lg" aria-label="Greek Spot, home">
-        <svg class="wordmark__mark" viewBox="0 0 360 76" role="img" aria-label="Greek Spot"><use href="#logo-wordmark"/></svg>
+        <span class="wordmark__row">
+          <svg class="wordmark__laurel" viewBox="0 0 60 34" aria-hidden="true"><use href="#icon-laurel-left"/></svg>
+          <svg class="wordmark__mark" viewBox="0 0 360 60" role="img" aria-label="Greek Spot"><use href="#logo-wordmark"/></svg>
+          <svg class="wordmark__laurel" viewBox="0 0 60 34" aria-hidden="true"><use href="#icon-laurel-right"/></svg>
+        </span>
       </a>
       <p>Authentic Gyro &amp; Souvlaki</p>
       <address>
@@ -871,7 +841,6 @@
       <ul>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#catering">Catering</a></li>
-        <li><a href="#about">About</a></li>
         <li><a href="#visit">Visit</a></li>
       </ul>
     </div>
@@ -887,9 +856,30 @@
 
   <div class="container footer__bottom">
     <span>&copy; <span id="year"></span> Greek Spot</span>
-    <span>3401 Skippack Pike, Cedars, PA 19423 &middot; (267) 903-5105</span>
+    <span class="footer__legal-links">
+      <a href="#privacy">Privacy Policy</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="#terms">Terms</a>
+    </span>
+    <span>Site by Crowne Creative</span>
   </div>
 </footer>
+
+<!-- =========================================================
+     PRIVACY / TERMS (lightweight, on-page)
+     ========================================================= -->
+<section class="legal" id="privacy">
+  <div class="container legal__inner">
+    <h3>Privacy Policy</h3>
+    <p>Greek Spot does not collect personal information through this website beyond what you choose to share by calling or visiting in person. This site does not process online orders or store payment information. If that changes, this page will be updated.</p>
+  </div>
+</section>
+<section class="legal" id="terms">
+  <div class="container legal__inner">
+    <h3>Terms</h3>
+    <p>This website is provided for general information about Greek Spot — our menu, hours, location and catering. Menu items, prices and hours are subject to change without notice; please call (267) 903-5105 to confirm before visiting.</p>
+  </div>
+</section>
 
 </div>
 </div>
