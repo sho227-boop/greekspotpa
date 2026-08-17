@@ -3,19 +3,19 @@
    Warm neighborhood Greek restaurant: ivory + parchment + deep
    navy, with olive and terracotta as small accents only.
 
-   IMAGE INVENTORY — every photo used exactly once on the homepage,
-   except catering, which intentionally reuses the Souvlaki photo
-   (explicitly permitted — see the comment on .catering__media):
-     assets/img/spanakopita.jpg          Hero background
+   IMAGE INVENTORY — every photo on the homepage is used exactly
+   once, no repeats:
+     assets/img/food-spread-overhead.jpg Hero background
+     assets/img/restaurant-exterior.jpg  About — storefront photo
      assets/img/gyro-wrap.jpg            What We Serve — Gyros
      assets/img/souvlaki-skewers.jpg     What We Serve — Souvlaki
-                                          (reused) Catering
-     assets/img/mezze-spread.jpg         What We Serve — Greek Salads
-     assets/img/gyro-platter.jpg         What We Serve — Platters
+     assets/img/greek-salad-feta.jpg     What We Serve — Greek Salads
+     assets/img/gyro-platter-meat.jpg    What We Serve — Platters
      assets/img/pita-tzatziki-salad.jpg  What We Serve — Pita & Tzatziki
      assets/img/baklava.jpg              What We Serve — Traditional Greek Baklava
-   About has no photo — every unique photo is already assigned
-   above; see README for why (no new photo set was received).
+     assets/img/souvlaki-plate.jpg       Catering
+   spanakopita.jpg, mezze-spread.jpg and gyro-platter.jpg remain in
+   assets/img/ unused, in case a future section needs them.
    ========================================================= */
 
 /* ---------- Reset / overflow safeguards ---------- */
@@ -232,7 +232,7 @@ body.menu-open { overflow: hidden; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url("../assets/img/spanakopita.jpg") center / cover no-repeat;
+  background: url("../assets/img/food-spread-overhead.jpg") center / cover no-repeat;
   transform: scale(1);
 }
 @media (min-width: 860px) {
@@ -316,10 +316,20 @@ body.menu-open { overflow: hidden; }
 .section--navy h2 { color: var(--ivory); }
 
 /* =========================================================
-   About — text-forward, no photo (see stylesheet header note)
+   About — warm editorial split, photo one side, text the other
    ========================================================= */
-.about__inner { max-width: 640px; }
-.about__inner p { margin-top: 1rem; font-size: 1.05rem; color: var(--ink-soft); max-width: 56ch; }
+.about__grid { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 900px) { .about__grid { grid-template-columns: 0.95fr 1.05fr; gap: 3rem; } }
+.about__media { width: 100%; }
+.about__media img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid rgba(114,81,60,0.16);
+}
+.about__content { max-width: 640px; }
+.about__content p { margin-top: 1rem; font-size: 1.05rem; color: var(--ink-soft); max-width: 56ch; }
 .about__doodle { width: 64px; height: auto; color: var(--olive); opacity: 0.55; margin-top: 1.4rem; }
 
 /* =========================================================
