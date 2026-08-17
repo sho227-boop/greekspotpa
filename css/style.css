@@ -50,6 +50,10 @@ html { scroll-behavior: smooth; }
 
   --font-head: 'DM Serif Display', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Classical Greek-column serif, used only for the "Greek Spot" name
+     itself (header, hero, footer) — real, legible letters, no fake
+     Greek-alphabet characters. */
+  --font-brand: 'Cinzel', 'DM Serif Display', Georgia, serif;
 
   --gap-mobile: 64px;
   --gap-desktop: 96px;
@@ -163,10 +167,10 @@ h1, h2, h3 {
   gap: 1rem;
 }
 .wordmark {
-  font-family: var(--font-head);
-  font-weight: 400;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  letter-spacing: 0.02em;
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  letter-spacing: 0.06em;
   color: var(--navy);
   white-space: nowrap;
 }
@@ -230,18 +234,15 @@ body.menu-open { overflow: hidden; }
   max-width: 620px;
   text-align: left;
 }
-@media (max-width: 640px) {
-  .hero__inner { max-width: 100%; text-align: center; margin-inline: auto; }
-}
 
 .hero__title {
-  font-family: var(--font-body);
-  font-weight: 800;
+  font-family: var(--font-brand);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-size: clamp(2.4rem, 8vw, 4rem);
+  letter-spacing: 0.04em;
+  font-size: clamp(2.2rem, 8vw, 4rem);
   color: var(--blue-bright);
-  line-height: 1;
+  line-height: 1.05;
   opacity: 0;
   animation: fade-up 0.7s var(--ease) 0.05s forwards;
 }
@@ -261,7 +262,6 @@ body.menu-open { overflow: hidden; }
   opacity: 0;
   animation: fade-up 0.7s var(--ease) 0.3s forwards;
 }
-@media (max-width: 640px) { .hero__sub { margin-inline: auto; } }
 
 .hero__actions {
   display: flex;
@@ -271,7 +271,6 @@ body.menu-open { overflow: hidden; }
   opacity: 0;
   animation: fade-up 0.7s var(--ease) 0.42s forwards;
 }
-@media (max-width: 640px) { .hero__actions { justify-content: center; } }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(14px); }
@@ -288,6 +287,27 @@ body.menu-open { overflow: hidden; }
 @media (min-width: 860px) { .section { padding-block: var(--gap-desktop); } }
 .section--white { background: var(--white); }
 .section--cream { background: var(--cream); }
+
+/* =========================================================
+   About
+   ========================================================= */
+.about__grid { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 860px) { .about__grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+.about__text p { margin-top: 1rem; font-size: 1.02rem; color: var(--ink-soft); max-width: 52ch; }
+.about__media { width: 100%; }
+.about__placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1.5px dashed rgba(11,59,110,0.28);
+  background: var(--cream-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+.about__placeholder span { font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); }
 
 /* =========================================================
    What We Serve — food grid
