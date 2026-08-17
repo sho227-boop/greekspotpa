@@ -6,7 +6,7 @@
 <title>Greek Spot | Authentic Greek Food in Cedars, PA</title>
 <meta name="description" content="Greek Spot in Cedars, PA serves authentic Greek favorites including gyros, souvlaki, salads, platters and more. Catering available. Call (267) 903-5105.">
 <meta name="keywords" content="Greek restaurant Cedars PA, Greek food Cedars PA, gyro Cedars PA, souvlaki Cedars PA, Mediterranean food Cedars PA, Greek catering Cedars PA">
-<meta name="theme-color" content="#0B3B6E">
+<meta name="theme-color" content="#102A43">
 
 <meta property="og:type" content="restaurant.restaurant">
 <meta property="og:title" content="Greek Spot | Authentic Greek Food in Cedars, PA">
@@ -15,7 +15,7 @@
 
 <!-- Temporary favicon: simple navy monogram. Replace with the official
      logo asset's favicon export once supplied. -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230B3B6E'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23F8F3EA' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23102A43'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23F4EFE5' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,6 +64,21 @@
       <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
       <path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
     </symbol>
+    <!-- Nearly-invisible olive branch, used once in About -->
+    <symbol id="icon-olive" viewBox="0 0 100 40">
+      <path d="M5 30 Q30 10 95 8" fill="none" stroke="currentColor" stroke-width="2"/>
+      <ellipse cx="20" cy="24" rx="7" ry="3.2" transform="rotate(-30 20 24)" fill="currentColor"/>
+      <ellipse cx="38" cy="16" rx="7" ry="3.2" transform="rotate(-20 38 16)" fill="currentColor"/>
+      <ellipse cx="56" cy="12" rx="7" ry="3.2" transform="rotate(-10 56 12)" fill="currentColor"/>
+      <ellipse cx="75" cy="9" rx="7" ry="3.2" transform="rotate(-5 75 9)" fill="currentColor"/>
+    </symbol>
+    <!-- Thin Greek-key divider, used once above the footer -->
+    <symbol id="icon-key" viewBox="0 0 200 16">
+      <pattern id="keyTile" width="20" height="16" patternUnits="userSpaceOnUse">
+        <path d="M0 16 V3 H3 V13 H10 V6 H6 V10 H13 V0" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      </pattern>
+      <rect width="200" height="16" fill="url(#keyTile)"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -76,6 +91,7 @@
     <a href="#home" class="wordmark" aria-label="Greek Spot, home">GREEK SPOT</a>
 
     <nav class="nav__links" aria-label="Primary">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#serve">Menu</a>
       <a href="#catering">Catering</a>
@@ -94,6 +110,7 @@
 
 <div class="mobile-menu" id="mobile-menu">
   <nav class="mobile-menu__links" aria-label="Mobile">
+    <a href="#home" data-menu-link>Home</a>
     <a href="#about" data-menu-link>About</a>
     <a href="#serve" data-menu-link>Menu</a>
     <a href="#catering" data-menu-link>Catering</a>
@@ -110,12 +127,13 @@
        HERO
        ========================================================= -->
   <section class="hero" id="home">
+    <div class="hero__bg" role="img" aria-label="Golden phyllo pastry, an authentic Greek dish"></div>
     <div class="page-container hero__inner">
       <h1 class="hero__title">Greek Spot</h1>
       <p class="hero__lede">Fresh Greek food, made to order.</p>
       <p class="hero__sub">Gyros, souvlaki, fresh salads, platters, and traditional Greek favorites in Cedars, Pennsylvania.</p>
       <div class="hero__actions">
-        <a href="#serve" class="btn btn--primary btn--lg">View the Menu</a>
+        <a href="#serve" class="btn btn--ivory btn--lg">View the Menu</a>
         <a href="tel:2679035105" class="btn btn--outline-light btn--lg">Call to Order</a>
       </div>
     </div>
@@ -124,24 +142,19 @@
   <!-- =========================================================
        ABOUT
        ========================================================= -->
-  <section class="section section--white" id="about">
-    <div class="page-container about__grid">
-      <div class="about__media">
-        <div class="about__placeholder" role="img" aria-label="Photo of the Greek Spot storefront — coming soon">
-          <span>Storefront photo coming soon</span>
-        </div>
-      </div>
-      <div class="about__text">
-        <h2>About Greek Spot</h2>
-        <p>Greek Spot is a small, family-owned Greek restaurant in Cedars, Pennsylvania. We serve fresh gyros, souvlaki, salads and traditional Greek dishes made to order, for our neighbors and regulars.</p>
-      </div>
+  <section class="section section--ivory" id="about">
+    <div class="page-container about__inner reveal">
+      <span class="eyebrow">Our Kitchen</span>
+      <h2>A Neighborhood Greek Kitchen</h2>
+      <p>Greek Spot is a small, family-owned restaurant in Cedars, Pennsylvania, serving fresh gyros, souvlaki, salads, platters, and traditional Greek favorites made to order.</p>
+      <svg class="about__doodle" viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-olive"/></svg>
     </div>
   </section>
 
   <!-- =========================================================
        WHAT WE SERVE
        ========================================================= -->
-  <section class="section section--cream" id="serve">
+  <section class="section section--parchment" id="serve">
     <div class="page-container">
       <div class="section-head reveal">
         <h2>What We Serve</h2>
@@ -190,7 +203,7 @@
   <!-- =========================================================
        MENU
        ========================================================= -->
-  <section class="section section--white" id="menu">
+  <section class="section section--ivory" id="menu">
     <div class="page-container">
       <div class="section-head reveal">
         <h2>Our Menu</h2>
@@ -293,20 +306,28 @@
   <!-- =========================================================
        CATERING
        ========================================================= -->
-  <section class="section section--cream" id="catering">
-    <div class="page-container catering__inner">
-      <h2>Greek Spot Catering</h2>
-      <p><strong>Bring Greek favorites to your next event.</strong></p>
-      <p>Planning a party, office lunch, birthday, family gathering, or celebration? Contact Greek Spot to discuss catering options for your group.</p>
-      <div class="catering__tags">
-        <span class="tag">Parties</span>
-        <span class="tag">Office Lunches</span>
-        <span class="tag">Family Events</span>
-        <span class="tag">Celebrations</span>
+  <section class="section section--parchment" id="catering">
+    <div class="page-container catering__grid">
+      <div class="catering__media reveal">
+        <!-- Reuses the Souvlaki photo — the only unique photos available
+             are already used once each in "What We Serve"; see the
+             stylesheet header note. -->
+        <img src="assets/img/souvlaki-skewers.jpg" alt="Grilled chicken souvlaki platter with rice and pita, ready for catering" loading="lazy" width="1448" height="1086">
       </div>
-      <div class="catering__actions">
-        <a href="tel:2679035105" class="btn btn--primary btn--lg">Ask About Catering</a>
-        <span class="catering__phone">(267) 903-5105</span>
+      <div class="catering__content reveal">
+        <span class="eyebrow">Catering</span>
+        <h2>Greek Spot Catering</h2>
+        <p>Bring Greek favorites to your next gathering. Call us to discuss trays, platters, and catering options.</p>
+        <div class="catering__tags">
+          <span class="tag">Parties</span>
+          <span class="tag">Office Lunches</span>
+          <span class="tag">Family Events</span>
+          <span class="tag">Celebrations</span>
+        </div>
+        <div class="catering__actions">
+          <a href="tel:2679035105" class="btn btn--primary btn--lg">Call About Catering</a>
+          <span class="catering__phone">(267) 903-5105</span>
+        </div>
       </div>
     </div>
   </section>
@@ -314,7 +335,7 @@
   <!-- =========================================================
        VISIT
        ========================================================= -->
-  <section class="section section--white" id="visit">
+  <section class="section section--ivory" id="visit">
     <div class="page-container">
       <div class="section-head reveal">
         <h2>Visit Greek Spot</h2>
@@ -368,6 +389,9 @@
      FOOTER
      ========================================================= -->
 <footer class="site-footer">
+  <div class="page-container">
+    <svg class="footer__key" viewBox="0 0 200 16" aria-hidden="true"><use href="#icon-key"/></svg>
+  </div>
   <div class="page-container footer__grid">
     <div class="footer__brand">
       <a href="#home" class="wordmark">GREEK SPOT</a>
@@ -381,6 +405,7 @@
     <div class="footer__col">
       <h4>Explore</h4>
       <ul>
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#serve">Menu</a></li>
         <li><a href="#catering">Catering</a></li>
@@ -394,6 +419,15 @@
         <li><a href="tel:2679035105">(267) 903-5105</a></li>
       </ul>
     </div>
+
+    <div class="footer__col">
+      <h4>Hours</h4>
+      <p class="footer__hours-summary">
+        Mon–Fri: 11 AM–8 PM<br>
+        Sat: 12–8 PM<br>
+        Sun: Closed
+      </p>
+    </div>
   </div>
 
   <div class="page-container footer__bottom">
@@ -403,7 +437,7 @@
       <span aria-hidden="true">&middot;</span>
       <a href="terms.html">Terms</a>
     </span>
-    <span>Website created by CROWNE Creative</span>
+    <span class="footer__credit">Website created by <a href="https://crownecreative.com" target="_blank" rel="noopener">CROWNE Creative</a></span>
   </div>
 </footer>
 
