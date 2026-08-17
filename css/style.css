@@ -3,10 +3,18 @@
    Warm neighborhood Greek restaurant: ivory + parchment + deep
    navy, with olive and terracotta as small accents only.
 
+   LOGO — the official uploaded Greek Spot logo asset, used as an
+   image everywhere (never retyped/redrawn):
+     assets/img/logo.png           transparent-background logo,
+                                    used on light backgrounds
+                                    (header, About, legal pages)
+     assets/img/logo-on-plate.png  the same logo on a small ivory
+                                    plate, used on navy backgrounds
+                                    (footer, mobile nav drawer)
+
    IMAGE INVENTORY — every photo on the homepage is used exactly
    once, no repeats:
      assets/img/food-spread-overhead.jpg Hero background
-     assets/img/restaurant-exterior.jpg  About — storefront photo
      assets/img/gyro-wrap.jpg            What We Serve — Gyros
      assets/img/souvlaki-skewers.jpg     What We Serve — Souvlaki
      assets/img/greek-salad-feta.jpg     What We Serve — Greek Salads
@@ -14,6 +22,8 @@
      assets/img/pita-tzatziki-salad.jpg  What We Serve — Pita & Tzatziki
      assets/img/baklava.jpg              What We Serve — Traditional Greek Baklava
      assets/img/souvlaki-plate.jpg       Catering
+   assets/img/restaurant-exterior.jpg is used on the About page
+   (about.html), not the homepage.
    spanakopita.jpg, mezze-spread.jpg and gyro-platter.jpg remain in
    assets/img/ unused, in case a future section needs them.
    ========================================================= */
@@ -56,9 +66,6 @@ html { scroll-behavior: smooth; }
 
   --font-head: 'DM Serif Display', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  /* Elegant serif for the "Greek Spot" name specifically — real,
-     legible letters, no fake Greek-alphabet characters. */
-  --font-brand: 'Cinzel', 'DM Serif Display', Georgia, serif;
 
   --gap-mobile: 48px;
   --gap-desktop: 68px;
@@ -171,14 +178,9 @@ h1, h2, h3 {
   padding-block: 0.75rem;
   gap: 1rem;
 }
-.wordmark {
-  font-family: var(--font-brand);
-  font-weight: 700;
-  font-size: clamp(1.02rem, 1.7vw, 1.25rem);
-  letter-spacing: 0.05em;
-  color: var(--navy);
-  white-space: nowrap;
-}
+.wordmark { display: inline-flex; align-items: center; flex-shrink: 0; }
+.wordmark__logo { height: 30px; width: auto; display: block; }
+@media (min-width: 640px) { .wordmark__logo { height: 36px; } }
 .nav__links { display: none; align-items: center; gap: 1.65rem; font-weight: 600; font-size: 0.9rem; }
 .nav__links a { color: var(--charcoal); transition: color 0.18s var(--ease); }
 .nav__links a:hover { color: var(--terracotta); }
@@ -209,6 +211,8 @@ h1, h2, h3 {
   overflow-y: auto;
 }
 .mobile-menu.is-open { transform: translateY(0); }
+.mobile-menu__brand { display: inline-block; margin-bottom: 2rem; }
+.mobile-menu__logo { height: 34px; width: auto; display: block; }
 .mobile-menu__links { display: flex; flex-direction: column; gap: 1.3rem; font-family: var(--font-head); font-size: 1.8rem; }
 .mobile-menu__links a { color: var(--ivory); }
 .mobile-menu__links a:hover { color: var(--terracotta); }
@@ -232,8 +236,10 @@ body.menu-open { overflow: hidden; }
 .hero__bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background: url("../assets/img/food-spread-overhead.jpg") center / cover no-repeat;
   transform: scale(1);
+  filter: brightness(0.94);
 }
 @media (min-width: 860px) {
   .hero__bg { animation: hero-settle 9s var(--ease) forwards; }
@@ -250,24 +256,37 @@ body.menu-open { overflow: hidden; }
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(100deg, rgba(11,31,51,0.80) 0%, rgba(11,31,51,0.5) 45%, rgba(11,31,51,0.22) 100%);
+}
+/* Bottom fade — dissolves the photo into the flat color of the
+   section that follows (What We Serve, --parchment), so there is
+   no hard edge or seam at the bottom of the hero. */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  height: 34%;
+  background: linear-gradient(to bottom, rgba(232,221,204,0) 0%, var(--parchment) 90%);
+  pointer-events: none;
 }
 .hero__inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding-block: 3rem;
   max-width: 620px;
   text-align: left;
 }
 
 .hero__title {
-  font-family: var(--font-brand);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: clamp(2.1rem, 7.5vw, 3.75rem);
+  font-family: var(--font-head);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-size: clamp(2.3rem, 8vw, 4rem);
   color: var(--ivory);
   line-height: 1.05;
+  text-shadow: 0 3px 16px rgba(11,31,51,0.6);
   opacity: 0;
   animation: fade-up 0.7s var(--ease) 0.05s forwards;
 }
@@ -276,6 +295,7 @@ body.menu-open { overflow: hidden; }
   font-family: var(--font-head);
   font-size: clamp(1.15rem, 2.4vw, 1.5rem);
   color: var(--parchment);
+  text-shadow: 0 2px 12px rgba(11,31,51,0.65);
   opacity: 0;
   animation: fade-up 0.7s var(--ease) 0.18s forwards;
 }
@@ -283,7 +303,8 @@ body.menu-open { overflow: hidden; }
   margin-top: 0.85rem;
   max-width: 46ch;
   font-size: 1rem;
-  color: #D9CFBB;
+  color: #E7DFCC;
+  text-shadow: 0 2px 10px rgba(11,31,51,0.65);
   opacity: 0;
   animation: fade-up 0.7s var(--ease) 0.3s forwards;
 }
@@ -316,21 +337,20 @@ body.menu-open { overflow: hidden; }
 .section--navy h2 { color: var(--ivory); }
 
 /* =========================================================
-   About — warm editorial split, photo one side, text the other
+   About page (about.html) — minimal, warm, image-led
    ========================================================= */
-.about__grid { display: grid; gap: 2rem; align-items: center; }
-@media (min-width: 900px) { .about__grid { grid-template-columns: 0.95fr 1.05fr; gap: 3rem; } }
-.about__media { width: 100%; }
-.about__media img {
+.about-page__inner { max-width: 720px; }
+.about-page__inner h1 { font-size: clamp(1.9rem, 4.2vw, 2.6rem); }
+.about-page__media { margin-top: 1.9rem; }
+.about-page__media img {
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid rgba(114,81,60,0.16);
 }
-.about__content { max-width: 640px; }
-.about__content p { margin-top: 1rem; font-size: 1.05rem; color: var(--ink-soft); max-width: 56ch; }
-.about__doodle { width: 64px; height: auto; color: var(--olive); opacity: 0.55; margin-top: 1.4rem; }
+.about-page__lede { margin-top: 1.6rem; font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; }
+.about-page__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.9rem; }
 
 /* =========================================================
    What We Serve — editorial photo grid
@@ -495,8 +515,8 @@ body.menu-open { overflow: hidden; }
 .footer__key { width: 100%; max-width: 220px; margin: 0 auto 2rem; color: rgba(244,239,229,0.28); }
 .footer__grid { display: grid; gap: 1.85rem; }
 @media (min-width: 760px) { .footer__grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; } }
-.footer__brand .wordmark { color: var(--ivory); }
-.footer__brand address { margin-top: 0.8rem; font-style: normal; line-height: 1.65; font-size: 0.9rem; color: #C9C2B2; }
+.footer__logo { height: 40px; width: auto; display: block; }
+.footer__brand address { margin-top: 1rem; font-style: normal; line-height: 1.65; font-size: 0.9rem; color: #C9C2B2; }
 .footer__brand address a:hover { color: var(--terracotta); }
 .footer__col h4 { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9B917C; margin-bottom: 0.85rem; }
 .footer__col ul { display: flex; flex-direction: column; gap: 0.55rem; }

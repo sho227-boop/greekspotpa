@@ -11,6 +11,7 @@
 <meta property="og:type" content="restaurant.restaurant">
 <meta property="og:title" content="Greek Spot | Authentic Greek Food in Cedars, PA">
 <meta property="og:description" content="Gyros, souvlaki, Greek classics and Mediterranean favorites in Cedars, PA. Catering available. Call (267) 903-5105.">
+<meta property="og:image" content="assets/img/logo.png">
 <meta property="og:locale" content="en_US">
 
 <!-- Temporary favicon: simple navy monogram. Replace with the official
@@ -19,7 +20,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -83,16 +84,18 @@
 </svg>
 
 <!-- =========================================================
-     HEADER — temporary text wordmark until the official Greek
-     Spot logo asset is supplied. No illustrated symbols.
+     HEADER — official Greek Spot logo asset (uploaded), used
+     as an image, never redrawn or retyped.
      ========================================================= -->
 <header class="site-header" id="site-header">
   <div class="page-container nav">
-    <a href="#home" class="wordmark" aria-label="Greek Spot, home">GREEK SPOT</a>
+    <a href="#home" class="wordmark" aria-label="Greek Spot, home">
+      <img src="assets/img/logo.png" alt="Greek Spot — Authentic Gyro &amp; Souvlaki" class="wordmark__logo">
+    </a>
 
     <nav class="nav__links" aria-label="Primary">
       <a href="#home">Home</a>
-      <a href="#about">About</a>
+      <a href="about.html">About</a>
       <a href="#serve">Menu</a>
       <a href="#catering">Catering</a>
       <a href="#visit">Location</a>
@@ -109,9 +112,12 @@
 </header>
 
 <div class="mobile-menu" id="mobile-menu">
+  <a href="#home" class="mobile-menu__brand" data-menu-link aria-label="Greek Spot, home">
+    <img src="assets/img/logo-on-plate.png" alt="Greek Spot — Authentic Gyro &amp; Souvlaki" class="mobile-menu__logo">
+  </a>
   <nav class="mobile-menu__links" aria-label="Mobile">
     <a href="#home" data-menu-link>Home</a>
-    <a href="#about" data-menu-link>About</a>
+    <a href="about.html" data-menu-link>About</a>
     <a href="#serve" data-menu-link>Menu</a>
     <a href="#catering" data-menu-link>Catering</a>
     <a href="#visit" data-menu-link>Location</a>
@@ -135,23 +141,6 @@
       <div class="hero__actions">
         <a href="#serve" class="btn btn--ivory btn--lg">View the Menu</a>
         <a href="tel:2679035105" class="btn btn--outline-light btn--lg">Call to Order</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       ABOUT
-       ========================================================= -->
-  <section class="section section--ivory" id="about">
-    <div class="page-container about__grid">
-      <div class="about__media reveal">
-        <img src="assets/img/restaurant-exterior.jpg" alt="The Greek Spot storefront in Cedars, Pennsylvania, with its sign reading Greek Spot, Authentic Gyro &amp; Souvlaki" loading="lazy" width="1536" height="1024">
-      </div>
-      <div class="about__content reveal">
-        <span class="eyebrow">Our Kitchen</span>
-        <h2>A Neighborhood Greek Kitchen</h2>
-        <p>Greek Spot is a small, family-owned restaurant in Cedars, Pennsylvania, serving fresh gyros, souvlaki, salads, platters, and traditional Greek favorites made to order.</p>
-        <svg class="about__doodle" viewBox="0 0 100 40" aria-hidden="true"><use href="#icon-olive"/></svg>
       </div>
     </div>
   </section>
@@ -396,7 +385,9 @@
   </div>
   <div class="page-container footer__grid">
     <div class="footer__brand">
-      <a href="#home" class="wordmark">GREEK SPOT</a>
+      <a href="#home" aria-label="Greek Spot, home">
+        <img src="assets/img/logo-on-plate.png" alt="Greek Spot — Authentic Gyro &amp; Souvlaki" class="footer__logo">
+      </a>
       <address>
         3401 Skippack Pike<br>
         Cedars, PA 19423<br>
@@ -408,10 +399,10 @@
       <h4>Explore</h4>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="#serve">Menu</a></li>
         <li><a href="#catering">Catering</a></li>
-        <li><a href="https://www.google.com/maps/dir/?api=1&destination=3401+Skippack+Pike%2C+Cedars%2C+PA+19423" target="_blank" rel="noopener">Directions</a></li>
+        <li><a href="#visit">Location</a></li>
       </ul>
     </div>
 
